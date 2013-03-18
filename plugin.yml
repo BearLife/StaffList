@@ -1,0 +1,34 @@
+name: StaffList
+description: Staff listing plugin
+version: 1.0
+
+main: me.jacklin213.stafflist.StaffList
+
+commands:
+    stafflist:
+      description: Lists Online Staff & How many Online
+    stafflist all:
+      description: Shows all staff
+    sl:
+      description: Allows the usage of Add/Remove commands
+    sl add <player_name>:
+      description: Adds player to the StaffList
+    sl remove <player_name>:
+      description: Removes player to the StaffList
+  
+permissions:
+    stafflist.*:
+      default: op
+      children:
+        stafflist.use: true
+        stafflist.add: true
+        stafflist.remove: true
+        stafflist.all: true
+    stafflist.add:
+      default: op
+    stafflist.remove:
+      default: op
+    stafflist.use:
+      default: op
+    stafflist.all:
+      default: op
