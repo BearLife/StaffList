@@ -67,16 +67,21 @@ public class StaffList extends JavaPlugin {
 			}
 			if(sender.hasPermission("stafflist.use")){
 				sd.load();		
-					try {
+				try {
+					if (sd.staffCount() == 0){
+						sender.sendMessage("[" +ChatColor.DARK_GREEN + "StaffList" + ChatColor.RESET + "] is empty!");
+						return true;
+					} else {
 						String allOnlineStaff = sd.staffOnline();
 						int staffCount = sd.staffCount();
 						int numStaffOnline = sd.numStaffOnline();
 						sender.sendMessage("[" +ChatColor.DARK_GREEN + "StaffList" + ChatColor.RESET + "] The number of Staff online is: " + numStaffOnline+ "/" + staffCount);
 						sender.sendMessage("[" +ChatColor.DARK_GREEN + "StaffList" + ChatColor.RESET + "] Staff Online: " + allOnlineStaff);
-					} catch (IOException e) {
-						sender.sendMessage("[" +ChatColor.DARK_GREEN + "StaffList" + ChatColor.RESET + "] The Staff List is empty!");
-						return true;
-					}
+					}	
+				} catch (IOException e) {
+					sender.sendMessage("[" +ChatColor.DARK_GREEN + "StaffList" + ChatColor.RESET + "] The Staff List is empty!");
+					return true;
+				}
 			} else {
 				sender.sendMessage(ChatColor.RED + "You do not have the permission to use this command!");
 				return true;
