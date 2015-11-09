@@ -19,7 +19,6 @@ commands:
 permissions:
     stafflist.*:
       default: op
-      children:
         stafflist.use: true
         stafflist.add: true
         stafflist.remove: true
